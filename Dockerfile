@@ -1,6 +1,13 @@
 # our base image
 FROM alpine:latest
 
+# Remove cache
+RUN rm -rf /var/cache/apk/* && \
+    rm -rf /tmp/*
+
+# Update apk
+RUN apk update
+
 # Install python and pip
 RUN apk add --update py2-pip
 
